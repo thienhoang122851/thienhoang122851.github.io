@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hotpatch - LiZ Hoang</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LiZ Hoang,">
+    <meta name="description" content="Các patch cần thiết giúp hoàn thiện PC/Laptop chạy Hackintosh của bạn...">
+    <meta name="author" content="LiZ Hoang">
+    <link rel="alternative" href="atom.xml" title="Hotpatch" type="application/atom+xml">
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    
+   
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body class="loading">
+    
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://lzhoang2601.github.io">
+        <h3 class="subtitle">Hotpatch</h3>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(https://live.staticflickr.com/772/31849727615_34384abd55_o.jpg);">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                January 24, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/Hotpatch/" title="Hotpatch" class="">Hotpatch</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Số Lần Đọc</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2>Các patch cần thiết giúp hoàn thiện PC/Laptop chạy Hackintosh của bạn</h2>
+            <h2 id="hotpatch"><strong>Tải xuống</strong><a href="#HotPatch" class="headerlink" title="HotPatch"></a><a href="https://github.com/lzhoang2601/lzhoang2601.github.io/tree/master/Hackintosh/Hotpatch" style="color: #42d2ca; font-family: Lato-Thin ;"> Hotpatch</a>
+<h1></h1>
+<p>Nếu có yêu cầu thêm patch vào Clover/ACPI/patched thì bắt buộc save với định dạng .aml và các patch cho config.plist đã có đầy đủ ở config_master.plist(trừ Battery) nhé!</p>
+<h1></h1>
+<p id="ALS0"><strong>ALS0 (Cảm biến ánh sáng)</strong></p>
+<blockquote>
+<ol>
+<li>Tìm “ACPI0008” trong DSDT của máy bạn</li>
+<li>Nếu có, bạn save SSDT-ALSD.dsl vào Clover/ACPI/patched và thêm tiếp patch có đầu “(ALS0)…” vào config.plist/ACPI/DSDT/Patches của bạn.<br>Nếu tìm mà không có, bạn chỉ việc save SSDT-ALS0.dsl vào Clover/APCI/patched là được</li>
+</ol>
+</blockquote>
+<p id="AOAC"><strong>AOAC (Công nghệ luôn luôn bật, luôn luôn kết nối)</strong></p>
+<blockquote>
+<ol>
+<p>Để bắt đầu thì bạn cần phải biết:</p>
+<li>Patch này không liên quan đến Sleep và Wake</li>
+<li>Phương pháp này cũng chỉ là phương pháp tạm thời, chưa được hoàn hảo</li>
+<li>Nếu máy bạn có dGPU, hãy disable nó để patch được hoạt động</li>
+</ol>
+</blockquote>
+<p id="Battery"><strong>Battery (Các patch pin sẵn cho laptop)</strong></p>
+<blockquote>
+<ol>
+<li>Chọn đúng SSDT patch pin cho laptop của mình rồi save vào Clover/ACPI/patched .</li>
+<li>Thêm các patches từ config_(tên máy).plist vào config.plist/ACPI/DSDT/Patches của bạn.<br>Nếu không tìm thấy SSDT patch pin phù hợp với laptop mình, bạn hãy patch thủ công theo <a href="https://www.tonymacx86.com/threads/guide-how-to-patch-dsdt-for-working-battery-status.116102/" target="_blank" rel="noopener">guide</a></li>
+</ol>
+</blockquote>
+<p id="BrightKey"><strong>BrightKey (Hotkey tăng giảm độ sáng màn hình)</strong></p>
+<blockquote>
+<p>Cách làm các bạn xem ở <a href="https://lzhoang2601.github.io/Hotpatch/#BrightKey">video</a> sau</p>
+</blockquote>
+<p id="EC"><strong>EC</strong></p>
+<blockquote>
+<ol>
+<li>Tìm “PNP0C09” trong DSDT của máy bạn</li>
+<li>Nếu nhận lại Device (EC) hay H_EC, ECDV thì thêm patch phù hợp vào config.plist/ACPI/DSDT/Patches để rename thành EC0</li>
+<li>Thêm SSDT-EC.dsl vào Clover/ACPI/patched để tạo EC ảo điều khiển nguồn USB</li>
+</ol>
+</blockquote>
+<p id="ECDT"><strong>ECDT</strong></p>
+<blockquote>
+<ol>
+<li>Mở ECDT.aml trong Clover/ACPI/origin</li>
+<li>Kiểm tra phần Namepatch, nếu đường dẫn chỉ đến đúng device EC thì bạn xoá SSDT-EC rồi quay lại bước <a class="toc-link" href="#EC"> <span class="toc-text">sau</span></a> rename bộ điều khiển EC của bạn về tên EC, còn không thì chuyển LPC thành LPCB, EC hay H_EC, ECDV thành ECO。</li>
+<li>Xoá hết phần Raw Table Data… đi</li>
+<li>Save file ECDT.aml vừa chỉnh vào Clover/ACPI/patched</li>
+<li>Thêm ECDT vào config.plist/ACPI/Drop Table</li>
+</ol>
+</blockquote>
+<p id="FanSpeed"><strong>FanSpeed (Hiển thị tốc độ quạt)</strong></p>
+<blockquote>
+<ol>
+<li>Cho ACPIPoller.kext vào CKO</li>
+<li>Nếu bạn không dùng FakeSMC.kext, vui lòng dùng nó. Mở FakeSMC.kext/Info.plist/IOKitPersonalities/FakeSMC/Configuration/keys/FNum/1/, bạn thay 00 thành 01</li>
+<li>Với Dell laptop, bạn save SSDT-Fans-Dell.dsl vào Clover/ACPI/patched<br>Với Thinkpad laptop, bạn save 1 trong 2 SSDT-Fans-TP.dsl hoặc SSDT-TEMPToFans-TP.dsl, không được dùng 2 SSDT này cũng lúc<br>Với Asus laptop, bạn làm theo <a href="https://osxlatitude.com/forums/topic/10244-how-to-implement-custom-fan-control-on-asus-laptops/" target="_blank" rel="noopener">guide sau</a></li>
+</ol>
+</blockquote>
+<p id="IMEI"><strong>IMEI</strong></p>
+<blockquote>
+<ol>
+<li>Save SSDT-IMEI.dsl vào Clover/APCI/patched với các máy dùng CPU Sandy Brigde, Ivy Brigde</li>
+<li>Tìm “HECI” và “MEI” trong DSDT của máy bạn rồi thêm patch “(IMEI)…” phù hợp vào config.plist/ACPI/Patches</li>
+</ol>
+</blockquote>
+<p id="Keyboard&Trackpad"><strong>Keyboard&amp;Trackpad</strong></p>
+<blockquote>
+<p>Để patch Trackpad I2C, các bạn có thể xem <a href="https://hackintosh.vn/trackpad-on-hackintosh-voi-giao-thu-i2c" target="_blank" rel="noopener">bài viết</a> hoặc <a href="">video sau</a></p>
+</blockquote>
+<p id="LPC"><strong>LPC</strong></p>
+<blockquote>
+<ol>
+<li>Save SSDT-LPC.dsl vào Clover/APCI/patched nếu trong DSDT của máy bạn không tìm thấy “LPCB”</li>
+<li>Thêm patch “(LPC) LPC to LPCB” vào config.plist/ACPI/Patches</li>
+</ol>
+</blockquote>
+<p id="NullEthernet"><strong>NullEthernet (Tạo 1 Lan ảo)</strong></p>
+<blockquote>
+<ol>
+<li>Thêm NullEthernet.kext và NullEthernetInjector.kext vào CKO</li>
+<li>Save SSDT-LPC.dsl vào Clover/APCI/patched</li>
+</ol>
+</blockquote>
+<p id="PLUG"><strong>PLUG</strong></p>
+<blockquote>
+<p>Với những CPU Sandy Bridge, Ivy Bridge bạn chỉ việc tick KernelXCPM trong config.plist/Kernel and Patches của bạn, còn với các thế hệ CPU mới hơn các bạn làm như sau:</p>
+<ol>
+    <li>Mở DSDT của máy bạn, tìm "Processor" nếu không có thì chuyển sang tìm "SCK0", dựa vào dòng đầu tiên ta sẽ được Scope _PR.CPU0 hoặc _PR.PR00, SCK0.C000, SCK0.CPU0, _SB.CPU0, _SB.PR00</li>
+    <li>Nếu được Scope _PR.CPU0, bạn chỉ việc save SSDT-PLUG.dsl vào Clover/ACPI/patched<br> Còn nếu bạn nhận được Scope khác thì mở SSDT-PLUG.dsl, thay thế "_PR.CPU0" bằng Scope bạn nhận được rồi save SSDT-PLUG.dsl vào Clover/ACPI/patched</li>
+    <li>Untick PluginType trong config.plist/Generate Options của bạn</li>
+</ol>
+</blockquote>
+<p id="PNLF"><strong>PNLF (Chỉnh độ sáng màn hình laptop)</strong></p>
+<blockquote>
+<p>Để rõ hơn bạn có thể xem <a href="https://hackintosh.vn/su-dung-clover-de-thuc-hien-patch-nong-apci" target="_blank" rel="noopener">bài viết</a> hoặc <a href="">video sau</a></p>
+</blockquote>
+<p id="PTSWAK"><strong>PTSWAK</strong></p>
+<blockquote>
+<ol>
+<li>Save file PTSWAK.dsl vào Clover/ACPI/patched dưới dạng .aml</li>
+<li>Tìm “_PTS” và “_WAK” trong DSDT của máy bạn, nếu<br> Method (_PTS, 1, NotSerialized) tức Method (_PTS, 1, N)<br> Method (_PTS, 1, Serialized) tức Method (_PTS, 1, S)<br> Method (_WAK, 1, NotSerialized) tức Method (_WAK, 1, N)<br> Method (_WAK, 1, Serialized) tức Method (_WAK, 1, S)</li>
+<li>Dựa vào Method đã xác định trên, tìm kiếm các patch “(PTSWAK)…” phù hợp thêm vào config.plist/ACPI/DSDT/Patches của bạn<br> <br> Bạn gặp khó khăn trong việc đánh thức laptop sau sleep, bạn save SSDT-EXT4-WakeScreen.dsl vào Clover/APCI/patched<br> Đèn thở không trở lại bình thường sau khi Thinkpad laptop wake, save SSDT-EXT3-LedReset-TP.dsl vào Clover/ACPI/patches<br> Còn nếu máy tính không shutdown được:</li>
+<p>1. Tìm “Processor” rồi đến “SCK0” để có được kết quả<br> 2. Nếu DATA của CPU là 1810 thì thay 0x000 thành 0x1830 còn DATA của CPU là 410 thì thay 0x000 thành 0x430 trong SSDT-EXT1-Shutdown.dsl rồi save vào Clover/ACPI/patched…</p>
+</ol>
+</blockquote>
+<p id="SATA"><strong>SATA (Dùng khi không nhận ổ cứng SATA)</strong></p>
+<blockquote>
+<ol>
+<li>Với các sata pci 8086:a103, 8086:9d03, 8086:a282, pci 8086:282A và 8086:2822 này bạn save SSDT-SATA vào Clover/ACPI/patched<br> Nếu không có pci được nhắc trên mà không nhận ổ cứng SATA thì hãy thêm AHCIinjectport.kext hoặc Sata-unsupported.kext</li>
+<li>Tìm "SAT0" và "SAT1" trong DSDT của máy bạn, rồi thêm patch tương ứng vào config.plist/ACPI/DSDT/Patches</li>
+</ol>
+</blockquote>
+<p id="SBUS"><strong>SMBUS</strong></p>
+<blockquote>
+<ol>
+<li>Tìm “0x001F0003” nếu dùng CPU Broadwell trở về trước, “0x001F0004” nếu dùng CPU Skylake hoặc mới hơn trong DSDT của máy bạn</li>
+<li>Nếu đã có Device (SBUS) rồi thì thôi<br>Nếu không có thì save SSDT-SBUS.dsl vào Clover/APCI/patched<br>Còn nếu bạn nhận lại “Device (SMBU)” sau khi tìm kiếm, bạn đổi hết “SBUS” thành “SMBU” trong SSDT-SBUS.dsl rồi save vào Clover/ACPI/patched. Với các Device khác bạn cũng làm tương tự</li>
+</ol>
+</blockquote>
+<p id="Sleep"><strong>Sleep</strong></p>
+<blockquote>
+<p>Nếu máy vẫn không chịu ngủ, bạn hãy thêm patch “(Sleep) LID0:_PRW to XPRW” vào config.plist/ACPI/DSDT/Patches của bạn</p>
+</blockquote>
+<p id="SleepKey"><strong>SleepKey</strong></p>
+<blockquote>
+<p>Để patch SleepKey, bạn hãy xem <a href="">video sau</a></p>
+<!--
+Trước khi tiến hành patch thì cần biết chút về 2 chế độ ngủ và MODE:
+    "PNP0C0E"(SLPB) - Thiết bị nút ngủ. Về đặc điểm giấc ngủ: Quá trình ngủ của thiết bị này nhanh, không thể chấm dứt. Nếu bạn dùng chế độ này thì cần chỉnh MODE = 1
+    "PNP0C0D"(LID0) - Thiết bị nắp. Về đặc điểm giấc ngủ: Ngủ ngon, nhấn nút ngủ lần nữa để ngừng ngủ ngay lập tức; khi kết nối màn hình ngoài, bạn nhấn nút ngủ thì màn laptop tắt, màn ngoài vẫn bình thường. Nếu bạn dùng chế độ này thì cần chỉnh MODE = 0
+1. Tuỳ chỉnh MODE theo nhu cầu rồi save SSDT-PTSWAK.dsl vào Clover/ACPI/patched
+   Tìm "PNP0C0E" trong DSDT của máy bạn, nếu không có kết quả, thêm SSDT-SLPB.dsl vào CLover/ACPI/patched
+   Tìm tiếp địa chỉ PNP0C0D "_SB.LID0" và "_SB.LID0.LPCB.LID0" trong DSDT của máy bạn, nếu có thì save SSDT-_ có tên tương ứng vào Clover/ACPI/patched
+   Dựa vào địa chỉ PNP0C0D vừa tìm được mà thay đổi trong SSDT-QXX.dsl, nếu địa chỉ là "_SB.LID0.LPCB.LID0" thì thay thế toàn bộ "_SB.LID0" thành "_SB.LID0.LPCB.LID0"
+   Tìm vị trí nút ngủ _Qxx, bạn thực hiện tìm kiếm trong DSDT toàn văn `Notify (***. SLPB, 0x80)` để tìm vị trí của nó và dần dần tìm vị trí ban đầu lên trên.
+   Ví dụ nút ngủ của mình là _Q26, tìm "Qxx" rồi thay thế hết thành "Q26" trong SSDT-Qxx.dsl
+   Thay đổi "LPCB" thành "LPC" tuỳ theo DSDT của máy bạn trong SSDT-Qxx.dsl rồi save vào CLover/ACPI/patched
+2. Thêm patch "(SleepKey) _LID to XLID" vào config.plist/ACPI/DSDT/Patches
+   Đổi tên _Q26 thành XQ26 trong config.plist/ACPI/DSDT/Patches
+ -->
+</blockquote>
+<p id="Sound"><strong>Sound</strong></p>
+<blockquote>
+<p>Để patch Sound, bạn hãy đọc <a href="https://hackintosh.vn/kich-hoat-am-thanh-sau-khi-cai-hackintosh" target="_blank" rel="noopener">bài viết</a> hoặc <a href="">video sau</a></p>
+</blockquote>
+<p id="USB"><strong>USB</strong></p>
+<blockquote>
+<p>Để patch USB port, bạn hãy đọc <a href="https://hackintosh.vn/su-dung-clover-de-thuc-hien-patch-nong-apci" target="_blank" rel="noopener">bài viết</a> hoặc <a href="">video sau</a></p>
+</blockquote>
+<p id="Wake"><strong>Wake</strong></p>
+<blockquote>
+<ol>
+<li>Mở DSDT của máy bạn, tìm kiếm lần lượt các địa chỉ sau:<br>  EHC1 (_ADR, 0x001D0000)<br>  EHC2 (_ADR, 0x001A0000)<br>  XHC, XHCI, XHC1 (_ADR, 0x00140000)<br>  XDCI (_ADR, 0x00140001)<br>  <em>Sound:</em><br>   Với CPU Broadwell trở về trước: HDEF hoặc AZAL (_ADR, 0x001B0000)<br>   Còn từ Skylake trở đi: HDAS (_ADR, 0x001F0003)<br>  <em>Ethernet:</em><br>   Với CPU Broadwell trở về trước: GLAN hoặc IGBE hoặc khác (_ADR, 0x00190000)<br>   Còn từ Skylake trở đi: GLAN hoặc IGBE hoặc khác (_ADR, 0x001F0006)<br> <em>CNVW</em> (_ADR, 0x00140003)</li>
+<li>Kiểm tra tiếp xem thiết bị có "_PRW" hay không, nếu có thì tìm tiếp xem trong Method (_PRW,..) xem dùng "0x0D" hay "0x6D" và "0x03" hay "0x04"</li>
+<li>Dựa vào các thông tin vừa kiểm tra, bạn tìm patch “(Wake)…” phù hợp rồi thêm patch vào config.plist/ACPI/DSDT/Patches. Đây là 1 cách, các bạn có thể làm cách động đến SSDT-GPRW.dsl và SSDT-UPRW.dsl, cách này sẽ chắc cú hơn và thích hợp cho các phần cứng mới ra mắt</li>
+</ol>
+</blockquote>
+<p id="XOSI"><strong>XOSI</strong></p>
+<blockquote>
+<ol>
+<li>Save SSDT-XOSI.dsl vào Clover/APCI/patched</li>
+<li>Thêm các patch có tên “(XOSI)…” vào config.plist/ACPI/DSDT/Patches</li>
+</ol>
+</blockquote>
+<p>Tác giả chính: <a href="https://github.com/daliansky"><strong>Daliansky</strong></a></p>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/hanhlangcu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/img/about.jpg" height=300 width=300></img>
+                    <p>LiZ Hoang</p>
+                    <span>Vọc vạch là đam mê</span>
+                    <dl>
+                        <dd><a href="https://github.com/lzhoang2601" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://facebook.com/lzhoang2601" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://youtube.com/c/LiZHoang" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">2 <p>Bài Viết</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Nội Dung</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ALS0"> <span class="toc-text">ALS0</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#AOAC"> <span class="toc-text">AOAC</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#Battery"> <span class="toc-text">Battery</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#BrightKey"> <span class="toc-text">BrightKey</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#EC"> <span class="toc-text">EC</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#ECDT"> <span class="toc-text">ECDT</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#FanSpeed"> <span class="toc-text">FanSpeed</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#IMEI"> <span class="toc-text">IMEI</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#Keyboard&Trackpad"> <span class="toc-text">Keyboard&Trackpad</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#LPC"> <span class="toc-text">LPC</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#NullEthernet"> <span class="toc-text">NullEthernet</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#PLUG"> <span class="toc-text">PLUG</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#PNLF"> <span class="toc-text">PNLF</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#PTSWAK"> <span class="toc-text">PTSWAK</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#SATA"> <span class="toc-text">SATA</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#SBUS"> <span class="toc-text">SMBUS</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#Sleep"> <span class="toc-text">Sleep</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#SleepKey"> <span class="toc-text">SleepKey</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#Sound"> <span class="toc-text">Sound</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#USB"> <span class="toc-text">USB</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#Wake"> <span class="toc-text">Wake</span></a></li>
+                        <li class="toc-item toc-level-1"><a class="toc-link" href="#XOSI"> <span class="toc-text">XOSI</span></a></li>
+                    </ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2020
+        <span class="gradient-text">
+            LiZ Hoang
+        </span>.
+        © Copyrights
+        <span class="gradient-text">
+            <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        </span>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+
+    
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+
+    
+<script src="/js/busuanzi.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["Happy New Year", "Ăn hải sản thì phải ăn GHẸ, muốn làm mẹ thì phải ăn ANH"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+
+
+</html>
