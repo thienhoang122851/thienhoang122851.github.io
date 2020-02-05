@@ -117,7 +117,7 @@ fetch('https://v1.hitokoto.cn')
 })
 .then(function (data) {
   if (subtitleEffect){
-    let sub = '今日事&#44;今日畢,Never put off till tomorrow what you can do today'.length == 0  ? new Array() : 'Hoàng Hồng Quân 2k5;Ăn hải sản thì phải ăn ghẹ, Muốn làm mẹ thì phải ăn anh'.split(",");
+    let sub = '今日事&#44;今日畢,Never put off till tomorrow what you can do today'.length == 0  ? new Array() : 'Hoàng Hồng Quân 2k5, Ăn hải sản thì phải ăn ghẹ, Muốn làm mẹ thì phải ăn anh'.split(",");
     let both = sub.unshift(data.hitokoto)
     let typed = new Typed("#subtitle", {
       strings: sub,
