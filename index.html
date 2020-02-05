@@ -134,26 +134,28 @@ function activateLightMode(){
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async></script>
 <script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
-<script>
-    function initialTyped () {
-        var typedTextEl = $('.typed-text');
-        if (typedTextEl && typedTextEl.length > 0) {
-            var typed = new Typed('.typed-text', {
-                strings: ["Ăn hải sản thì phải ăn GHẸ", "muốn làm mẹ thì phải ăn ANH"],
-                typeSpeed: 150,
-                loop: true,
-                loopCount: Infinity,
-                backSpeed: 50,
-            });
-        }
-    }
-
-    if ($('.article-header') && $('.article-header').length) {
-        $(document).ready(function () {
-            initialTyped();
-        });
-    }
-</script>
+<script>let subtitleEffect = true
+.then(function (res){
+  return res.json();
+})
+.then(function (data) {
+  if (subtitleEffect){
+    let sub = 'Ăn hải sản thì phải ăn ghẹ,Muốn làm mẹ thì phải ăn anh'.length == 0  ? new Array() : 'Ăn hải sản thì phải ăn ghẹ,Muốn làm mẹ thì phải ăn anh'.split(",");
+    let both = sub.unshift(data.hitokoto)
+    let typed = new Typed("#subtitle", {
+      strings: sub,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    });
+  }else{
+    $("#subtitle").text(data.hitokoto);
+  }
+})
+.catch(function (err) {
+  console.error(err);
+})</script>
 <script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script>
 <script>pangu.spacingElementByClassName("article-container")</script>
     </body>
