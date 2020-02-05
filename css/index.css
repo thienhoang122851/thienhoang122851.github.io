@@ -1,6 +1,5 @@
 @import 'nib'
 @import '_third-party/normalize.min.css'
-@import 'var'
 @import '_highlight/highlight'
 @import '_layout/*'
 
@@ -23,13 +22,6 @@ body
     -webkit-user-select: none
     -ms-user-select: none
 
-#body-wrap
-  position: relative
-  display: flex
-  flex: 1 auto
-  flex-direction: column
-  transition: all .5s
-
 *::-webkit-scrollbar
   width: 8px
   height: 8px
@@ -39,17 +31,6 @@ body
 
 *::-webkit-scrollbar-track
   background-color: transparent
-
-#web_bg
-  position: fixed
-  z-index: -999
-  width: 100%
-  height: 100%
-  background: $web-bg
-  background-attachment: local
-  background-position: center
-  background-size: cover
-  background-repeat: no-repeat
 
 h1,
 h2,
@@ -64,9 +45,6 @@ h6
 
   code
     font-size: inherit !important
-
-#content-outer
-  flex: 1 auto
 
 *
   box-sizing: border-box
@@ -251,20 +229,8 @@ img:not([src])
 
 .layout_page,
 .layout_post,
-#footer
-  animation: main 1s
-
-#nav,
-#top-container
-  animation: header 1s
-
-#site-title
-  animation: titlescale 1s
 
 canvas,
-#web_bg
-  animation: to_show 4s
-
 .card-announcement-animation
   color: #FF0000
   animation: announ_animation .8s linear infinite
@@ -382,3 +348,1451 @@ if hexo-config('avatar_effect') == true
 
   body
     padding-left: 0 !important
+
+// Theme Global Color
+$theme-color = #49B1F5
+$theme-paginator-color = #00c4b6
+$theme-button-hover-color = #FF7242
+$theme-text-selection-color = #00c4b6
+$theme-meta-color = #858585
+$theme-link-color = #99a9bf
+$theme-hr-color = #A4D8FA
+$theme-read-mode-bg-color = #FAF9DE
+$inline-code-color = #F47466
+$font-family= Lato, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif
+$code-font = consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace, Helvetica Neue For Number
+$site-name-font = "Titillium Web", Lato,PingFang SC, Hiragino Sans GB, "Microsoft JhengHei", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif
+//hr icon
+$hr-icon = '\f0c4'
+$hr-icon-top = -10px
+$title-prefix-icon = '\f0c1'
+$title-prefix-icon-color = #F47466
+
+if hexo-config("theme_color") && hexo-config("theme_color.enable")
+  $theme-color = convert(hexo-config("theme_color.main")) || #49B1F5
+  $theme-paginator-color = convert(hexo-config("theme_color.paginator")) || #00c4b6
+  $theme-button-hover-color = convert(hexo-config("theme_color.button_hover")) || #FF7242
+  $theme-text-selection-color = convert(hexo-config("theme_color.text_selection")) || #00c4b6
+  $theme-link-color = convert(hexo-config("theme_color.link_color")) || #99a9bf
+  $theme-meta-color = convert(hexo-config("theme_color.meta_color")) || #858585
+  $theme-hr-color = convert(hexo-config("theme_color.hr_color")) || #A4D8FA
+  $theme-read-mode-bg-color = convert(hexo-config("theme_color.read-mode-bg_color")) || #FAF9DE
+  $inline-code-color = convert(hexo-config("theme_color.inline-code-color")) || #F47466
+
+if hexo-config("font") && hexo-config("font.enable")
+  $font-family = convert(hexo-config("font.font-family")) || 'Lato, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif'
+  $code-font = convert(hexo-config("font.code-font")) || 'consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace, Helvetica Neue For Number'
+
+if hexo-config("blog_title_font.font-family")
+  $site-name-font = convert(hexo-config("blog_title_font.font-family")) || '"Titillium Web",Lato,PingFang SC, Hiragino Sans GB, "Microsoft JhengHei", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif'
+
+
+if hexo-config("hr") && hexo-config("hr.enable")
+  $hr-icon = hexo-config("hr.icon") || '\f0c4'
+  $hr-icon-top = convert(hexo-config("hr.icon-top")) || -10px
+
+if hexo-config("post_beautify.enable")
+  $title-prefix-icon = hexo-config("post_beautify.title-prefix-icon") || '\f0c1'
+  $title-prefix-icon-color= convert(hexo-config("post_beautify.title-prefix-icon-color")) || #F47466
+
+.category-content
+ol,
+ul
+  margin-top: .4rem
+  padding: 0 0 0 .8rem
+  list-style: none
+  counter-reset: li
+
+  p
+    margin: 0
+
+  ol,
+  ul
+    padding-left: .5rem
+
+  li
+    position: relative
+    margin: .3rem 0
+    padding: .1rem .5rem .1rem 1.5rem !important
+
+    &:hover
+      &:before
+        transform: rotate(360deg)
+
+    &:before
+      position: absolute
+      top: 0
+      left: 0
+      background: $light-blue
+      color: $white
+      cursor: pointer
+      transition: all .3s ease-out
+
+ol
+  li
+    &:before
+      margin-top: .2rem
+      width: w = 1.2rem
+      height: h = w
+      border-radius: .5 * w
+      content: counter(li)
+      counter-increment: li
+      text-align: center
+      font-size: .6rem
+      line-height: h
+
+ul
+  li
+    &:hover
+      &:before
+        border-color: $ruby
+
+    &:before
+      $w = .3rem
+      top: 10px
+      margin-left: .45rem
+      width: w = $w
+      height: h = w
+      border: .5 * w solid $light-blue
+      border-radius: w
+      background: $white
+      content: ''
+      line-height: h
+
+
+#sidebar
+position: fixed
+top: 0
+left: -300px
+z-index: 10
+overflow-y: auto
+padding: 1rem 0 2rem .5rem
+width: $sidebar-width
+height: 100%
+background: $sidebar-background
+box-shadow: -.25rem 0 .25rem rgba(232, 237, 250, .6) inset
+opacity: .9
+transition: ease-in-out .4s
+
+.sidebar-toc
+  ol,
+  li
+    list-style: none
+
+  ol
+    margin-top: .2rem
+    padding-left: .4rem
+
+  &__title
+    padding-right: .5rem
+    text-align: center
+    font-size: unit(.9 * $rem, 'px')
+
+  .toc-link
+    display: block
+    padding-left: .2rem
+    border-right: 3px solid transparent
+    text-decoration: none
+    transition: all .2s ease-in-out
+
+    &.active
+      border-right-color: darken($cyan, 20%)
+      background: $cyan
+      color: $white
+
+  &__progress
+    position: relative
+    margin-top: -.3rem
+    padding-left: .6rem
+    color: $cyan
+
+    .progress-notice
+      margin-right: .4rem
+
+    .progress-num
+      display: inline-block
+      min-width: .9rem
+
+    &-bar
+      width: 0
+      height: 1px
+      background: $cyan
+
+#rightside
+  position: fixed
+  right: -38px
+  bottom: 40px
+  opacity: 0
+  transition: all .5s
+
+  #rightside-config-hide
+    transform: translate(35px, 0)
+
+  .rightside-in
+    transform: translate(0, 0) !important
+    animation: rightsideIn .3s
+
+  .rightside-out
+    animation: rightsideOut .3s
+
+  & > div
+    & > i,
+    & > a,
+    & > div
+      display: block
+      margin-bottom: 2px
+      width: 30px
+      height: 30px
+      background-color: $light-blue
+      color: $white
+      text-align: center
+      text-decoration: none
+      font-size: 16px
+      line-height: 29px
+      cursor: pointer
+
+      &:hover
+        background-color: $ruby
+
+  #rightside_config
+    i
+      animation: avatar_turn_around 2s linear infinite
+
+  #mobile-toc-button
+    display: none
+
+@media screen and (max-width: $bg)
+  #rightside
+    #mobile-toc-button
+      display: block
+
+@keyframes rightsideIn
+  0%
+    transform: translate(30px, 0)
+
+  100%
+    transform: translate(0, 0)
+
+@keyframes rightsideOut
+  0%
+    transform: translate(0, 0)
+
+  100%
+    transform: translate(30px, 0)
+
+.post-reward
+margin: 75px auto 0
+width: 100%
+text-align: center
+
+.reward-button
+  position: relative
+  z-index: 1
+  display: inline-block
+  width: 100px
+  background: $light-blue
+  color: $white
+  text-align: center
+  line-height: 36px
+  cursor: pointer
+
+  &:hover
+    .reward-main
+      display: block
+
+  .reward-main
+    position: absolute
+    bottom: 40px
+    left: 0
+    display: none
+    margin: 0
+    padding: 0 0 15px
+    width: 100%
+    transition: all .6s
+
+    .reward-all
+      display: inline-block
+      margin: 0 0 0 -110px
+      padding: 20px 10px 8px
+      width: 320px
+      border-radius: 4px
+      background: #f5f5f5
+
+      &:before
+        position: absolute
+        bottom: -10px
+        left: 0
+        width: 100%
+        height: 20px
+        content: ''
+
+      &:after
+        position: absolute
+        right: 0
+        bottom: 2px
+        left: 0
+        margin: 0 auto
+        width: 0
+        height: 0
+        border-top: 13px solid #f5f5f5
+        border-right: 13px solid transparent
+        border-left: 13px solid transparent
+        content: ''
+
+      .reward-item
+        display: inline-block
+        padding: 0 8px
+        list-style-type: none
+
+        img
+          position: relative
+          max-width: 130px
+          width: 130px
+          border-radius: 3px
+
+        .post-qr-code__desc
+          margin: -5px 0
+          color: #858585
+          text-align: center
+
+.relatedPosts
+  margin: 0 auto
+  margin-top: 1rem
+  padding: 0
+  width: 100%
+
+.relatedPosts_item
+  position: relative
+  float: left
+  overflow: hidden
+  margin: 5px
+  width: calc(100% / 3 - 10px)
+  height: 200px
+  background: $dark-black
+
+  &:hover
+    .relatedPosts_cover
+      opacity: .8
+      transform: scale(1.1)
+
+  a
+    text-decoration: none
+
+.relatedPosts_cover
+  position: absolute
+  display: block
+  margin: 0
+  padding: 0
+  width: 100%
+  height: 100%
+  border: 0
+  opacity: .4
+  transition: all .6s
+  object-fit: cover
+
+.relatedPosts_main
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin: 0
+  padding: 0 1rem
+  height: 100%
+  color: $white
+
+  .relatedPosts_date
+    display: block
+    color: alpha($white, .9)
+    font-size: 90%
+
+  .relatedPosts_title
+    display: -webkit-box
+    overflow: hidden
+    max-height: 60px
+    -webkit-line-clamp: 2
+    -webkit-box-orient: vertical
+
+.relatedPosts_headline
+  margin-bottom: 5px
+  font-weight: 700
+  font-size: 20px
+
+.clear_both
+  clear: both
+
+@media screen and (max-width: 768px)
+  .relatedPosts_item
+    margin: 2px
+    width: calc(100% / 2 - 4px)
+    height: 150px
+
+@media screen and (max-width: 480px)
+  .relatedPosts_item
+    width: calc(100% - 4px)
+
+if hexo-config('post_beautify.enable')
+  headStyle(fontsize)
+    padding-left: unit(fontsize + .3, 'rem')
+
+    code
+      font-size: unit(fontsize, 'rem')
+
+    &:before
+      top: calc(50% - unit(fontsize / 2 - .05, 'rem'))
+      font-size: unit(fontsize, 'rem')
+
+    &:hover
+      padding-left: unit(fontsize + .2, 'rem')
+
+a
+  color: $a-link-color
+  transition: all .2s
+
+  &:hover
+    color: $light-blue
+    text-decoration: none
+
+  &#site-name
+    text-decoration: none
+
+a.fancybox
+  outline: none
+
+  &:focus
+    outline: none
+
+  display: inline-block
+  width: 100%
+  text-align: center
+  text-decoration: none
+
+p
+  margin: 0 0 .8rem
+
+img
+  max-width: 100%
+  transition: all .2s
+
+// highlight
+.highlight-tools
+  .code-expand
+    position: absolute
+    top: 0
+    z-index: 1
+    padding: 7px 10px
+    color: $highlight-foreground
+    cursor: pointer
+    transition: all .3s
+    transform: rotate(0)
+
+    & + .code_lang
+      left: 30px
+
+    &.code-closed
+      transition: all .3s
+      transform: rotate(-90deg) !important
+
+  .code_lang
+    position: absolute
+    left: 15px
+    z-index: 1
+    color: $highlight-foreground
+    text-transform: capitalize
+    font-weight: bold
+    font-size: .8rem
+    line-height: 1.4rem
+    cursor: pointer
+
+  .copy-notice
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 1
+    background: darken($highlight-background, 5)
+    color: $highlight-aqua
+    opacity: 0
+
+  .fa-clipboard
+    position: absolute
+    top: .4rem
+    right: 10px
+    z-index: 1
+    color: $highlight-aqua
+    cursor: pointer
+    transition: color .2s
+
+    &:hover
+      color: darken($highlight-aqua, 20%)
+
+@media screen and (min-width: $md)
+  .layout_post
+    width: $content-large-width
+
+.katex-wrap
+  overflow: auto
+
+  if hexo-config('katex') && hexo-config('katex.hide_scrollbar')
+    &::-webkit-scrollbar
+      display: none
+
+.layout_post
+  margin: 40px auto
+  padding: 50px
+  max-width: 1000px
+  border-radius: 8px
+  background: #fff
+  box-shadow: 0 4px 8px 6px rgba(7, 17, 27, .06)
+  transition: all .3s
+
+  &:hover
+    box-shadow: 0 4px 12px 12px rgba(7, 17, 27, .15)
+
+  img
+    display: block
+
+  & >.tag_share
+    .post-meta
+      &__tag-list
+        display: inline-block
+
+      &__tags
+        display: inline-block
+        margin: .4rem .4rem .4rem 0
+        padding: 0 .6rem
+        width: fit-content
+        border: 1px solid $light-blue
+        border-radius: .6rem
+        background: $white
+        color: $light-blue
+        text-decoration: none
+        font-size: 12px
+        cursor: pointer
+        transition: all .2s ease-in-out
+
+        &:hover
+          background: $light-blue
+          color: $white
+
+    .post_share
+      display: inline-block
+      float: right
+      margin: .4rem 0
+      width: fit-content
+
+      .social-share
+        font-size: 12px
+
+        .social-share-icon
+          margin: 0 4px
+          width: 26px
+          height: 26px
+          font-size: 15px
+          line-height: 25px
+
+  & > .post-copyright
+    position: relative
+    margin: 2rem 0 .5rem
+    padding: .5rem .8rem
+    border: 1px solid $light-grey
+    transition: box-shadow .3s ease-in-out
+
+    &:before
+      position: absolute
+      top: t = .5rem
+      right: t
+      width: w = .8rem
+      height: w
+      border-radius: w
+      background: $light-blue
+      content: ''
+
+    &:after
+      position: absolute
+      top: t = .7rem
+      right: t
+      width: w = .4rem
+      height: w
+      border-radius: w
+      background: $white
+      content: ''
+
+    &:hover
+      box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
+
+    .post-copyright
+      &-meta
+        color: $light-blue
+        font-weight: bold
+
+      &-info
+        padding-left: .3rem
+
+        a
+          word-break: break-word
+
+@media screen and (max-width: 1024px)
+  .layout_post
+    margin: 0 15px
+    width: auto
+
+@media screen and (max-width: $sm)
+  .layout_post
+    margin: 0 5px
+    padding: 1.8rem 1rem
+
+// Global Variables
+$font-size = 14px
+$font-color = #1F2D3D
+$rem = 20px
+$font-family = $font-family
+$code-font = $code-font
+$site-name-font = $site-name-font
+$text-line-height = 2
+$sm = 768px
+$bg = 1024px
+$md = 1300px
+$lg = 1450px
+$sidebar-icon-top = 20px
+$sidebar-icon-left = $sidebar-icon-top - 4px
+$sidebar-icon-size = 16px
+$web-bg = convert(hexo-config("background"))
+$index_top_img_height = convert(hexo-config('index_top_img_height')) || 100vh
+// Global color & SVG
+$pale-blue = $theme-hr-color
+$light-blue = $theme-color
+$blue = #1B9EF3
+$dark-blue = #0790E8
+$orange = #F1BE48
+$pale-green = #B4E1C1
+$light-green = #69C282
+$green = #44B363
+$dark-green = #379F54
+$pale-cyan = #D1F4F2
+$light-cyan = #8CE4DE
+$cyan = $theme-paginator-color
+$pale-red = #F9b9b3
+$light-red = #F47466
+$red = #F15140
+$dark-red = #E63E2C
+$ruby = $theme-button-hover-color
+$light-black = #3B3A3A
+$black = #2E2E2E
+$dark-black = #000000
+$pale-grey = #F7F7F7
+$light-grey = #EEEEEE
+$grey = $theme-meta-color
+$pale-yellow = $theme-read-mode-bg-color
+$white = #FFFFFF
+$whitesmoke   = #f5f5f5;
+$dark-white = #F9F9F9
+$font-black = #4C4948
+$selection = $theme-text-selection-color
+
+// code
+$code-font-size = $font-size
+$code-font-family = $font-family
+$code-foreground = $inline-code-color
+$code-background = rgba(27, 31, 35, 0.05)
+$line-height-code-block = 20px
+$blockquote-color = #6a737d
+$blockquote-padding-color = $theme-color
+$blockquote-background-color = rgba(73, 177, 245,0.1)
+// page
+$content-width = 800px
+$content-large-width = 1000px
+$a-link-color = $theme-link-color
+$a-hover-color = #82AAFF
+$img-border-color = #eaeefb
+// sidebar
+$sidebar-width = 300px
+$sidebar-background = #f6f8fa
+
+// Note colors
+// --------------------------------------------------
+hexo-config('note.light_bg_offset') is a 'unit' ? ($lbg = unit(hexo-config('note.light_bg_offset'),"%")) : ($lbg = 0);
+
+// Default
+$note-default-border        = #777;
+$note-default-bg            = lighten(spin($note-default-border, 0), 94% + $lbg);
+$note-default-text          = $note-default-border;
+$note-default-icon          = "\f0a9";
+
+$note-modern-default-border = #e1e1e1;
+$note-modern-default-bg     = lighten(spin($note-modern-default-border, 10), 60% + ($lbg * 4));
+$note-modern-default-text   = #666;
+$note-modern-default-hover  = darken(spin($note-modern-default-text, -10), 32%);
+
+// Primary
+$note-primary-border        = #6f42c1;
+$note-primary-bg            = lighten(spin($note-primary-border, 10), 92% + $lbg);
+$note-primary-text          = $note-primary-border;
+$note-primary-icon          = "\f055";
+
+$note-modern-primary-border = #e1c2ff;
+$note-modern-primary-bg     = lighten(spin($note-modern-primary-border, 10), 40% + ($lbg * 4));
+$note-modern-primary-text   = #6f42c1;
+$note-modern-primary-hover  = darken(spin($note-modern-primary-text, -10), 22%);
+
+// Info
+$note-info-border           = #428bca;
+$note-info-bg               = lighten(spin($note-info-border, -10), 91% + $lbg);
+$note-info-text             = $note-info-border;
+$note-info-icon             = "\f05a";
+
+$note-modern-info-border    = #b3e5ef;
+$note-modern-info-bg        = lighten(spin($note-modern-info-border, 10), 50% + ($lbg * 4));
+$note-modern-info-text      = #31708f;
+$note-modern-info-hover     = darken(spin($note-modern-info-text, -10), 32%);
+
+// Success
+$note-success-border        = #5cb85c;
+$note-success-bg            = lighten(spin($note-success-border, 10), 90% + $lbg);
+$note-success-text          = $note-success-border;
+$note-success-icon          = "\f058";
+
+$note-modern-success-border = #d0e6be;
+$note-modern-success-bg     = lighten(spin($note-modern-success-border, 10), 40% + ($lbg * 4));
+$note-modern-success-text   = #3c763d;
+$note-modern-success-hover  = darken(spin($note-modern-success-text, -10), 27%);
+
+// Warning
+$note-warning-border        = #f0ad4e;
+$note-warning-bg            = lighten(spin($note-warning-border, 10), 88% + $lbg);
+$note-warning-text          = $note-warning-border;
+$note-warning-icon          = "\f06a";
+
+$note-modern-warning-border = #fae4cd;
+$note-modern-warning-bg     = lighten(spin($note-modern-warning-border, 10), 43% + ($lbg * 4));
+$note-modern-warning-text   = #8a6d3b;
+$note-modern-warning-hover  = darken(spin($note-modern-warning-text, -10), 18%);
+
+// Danger
+$note-danger-border         = #d9534f;
+$note-danger-bg             = lighten(spin($note-danger-border, -10), 92% + $lbg);
+$note-danger-text           = $note-danger-border;
+$note-danger-icon           = "\f056";
+
+$note-modern-danger-border  = #ebcdd2;
+$note-modern-danger-bg      = lighten(spin($note-modern-danger-border, 10), 35% + ($lbg * 4));
+$note-modern-danger-text    = #a94442;
+$note-modern-danger-hover   = darken(spin($note-modern-danger-text, -10), 22%);
+
+#aside_content
+  width: 25%
+
+  .card-widget
+    overflow: hidden
+    margin-top: 20px
+    border-radius: 8px
+    background: $white
+    box-shadow: 0 4px 8px 6px rgba(7, 17, 27, .06)
+    transition: all .3s
+
+    &:hover
+      box-shadow: 0 4px 12px 12px rgba(7, 17, 27, .15)
+
+  .card-info
+    img
+      display: inline-block
+      padding: 5px
+      width: 120px
+      height: 120px
+      border-radius: 70px
+      vertical-align: top
+      transition: all .3s
+
+      &:hover
+        transform: rotate(540deg)
+
+    .author-info
+      &__name
+        font-weight: 500
+        font-size: 1.1rem
+
+      &__description
+        margin-top: -.3rem
+
+    .card-info-data
+      display: flex
+      padding: .7rem 0
+
+      & > .card-info-data-item
+        flex: 1 1
+        min-width: 0
+
+        a
+          text-decoration: none
+
+          .headline
+            display: block
+            overflow: hidden
+            color: $font-black
+            text-transform: uppercase
+            text-overflow: ellipsis
+            white-space: nowrap
+            font-size: .7rem
+
+          .length_num
+            color: $dark-black
+            font-size: 1rem
+
+    .card-info-social-icons
+      margin: .3rem 0 -.3rem
+
+      .social-icon
+        margin: 0 .5rem
+        color: $font-black
+        font-size: 1rem
+        cursor: pointer
+
+      i
+        transition: all .3s
+
+        &:hover
+          transform: rotate(540deg)
+
+    #bookmark-it
+      position: relative
+      z-index: 1
+      display: block
+      background-color: $light-blue
+      color: $white
+      text-decoration: none
+      text-transform: uppercase
+      line-height: 1.6rem
+
+      span
+        padding-left: .5rem
+
+  .card-content
+    padding: 1rem 1.2rem
+
+  .item-headline
+    font-size: .8rem
+
+    span
+      margin-left: .5rem
+
+  .card-tag-cloud
+    a
+      text-decoration: none
+      word-break: keep-all
+
+      &:hover
+        color: $light-blue !important
+
+  .card-recent-post
+    .aside-recent-item
+      margin: 10px 0 -15px
+
+      & > .aside-recent-post
+        margin-bottom: 10px
+
+        & > a
+          color: $font-black
+          text-decoration: none
+
+          .aside-post-cover
+            float: left
+            overflow: hidden
+            width: 66px
+            height: 66px
+
+            .aside-post-bg
+              padding: 0
+              max-width: 100%
+              width: 100%
+              height: 100%
+              transition: all .6s
+              object-fit: cover
+
+              &:hover
+                box-shadow: none
+                transform: scale(1.1)
+
+          .aside-post-title
+            .aside-post_meta
+              padding-left: 10px
+              color: $theme-link-color
+              font-size: .6rem
+
+            .aside-post_title
+              display: -webkit-box
+              overflow: hidden
+              padding-left: 10px
+              height: 40px
+              line-height: 1rem
+              -webkit-line-clamp: 2
+              -webkit-box-orient: vertical
+
+              &:hover
+                color: $light-blue !important
+
+  .card-archives ul.archive-list,
+  .card-categories ul.aside-category-item
+    margin: 0
+    padding: .2rem 0 0
+    list-style: none
+
+  .card-archives ul.archive-list > .archive-list-item,
+  .card-categories ul.aside-category-item > .aside-category-list
+    padding: .2rem 1rem
+    cursor: pointer
+    transition: all .3s
+
+    &:hover
+      padding: .2rem .85rem
+      background-color: $light-blue
+      color: #363636
+
+    a
+      display: flex
+      color: $font-black
+      text-decoration: none
+
+      span
+        &:first-child
+          flex: auto
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+
+  .card-categories
+    .aside-category-item
+      &.child
+        padding: 0 0 0 1.2rem
+
+  .card-archives
+    .archive-list-link-more
+      justify-content: center
+
+  .card-webinfo
+    .webinfo
+      padding: .2rem 1rem
+
+      .webinfo-item
+        display: block
+        padding: 4px 0 0
+
+        div
+          &:first-child
+            display: inline-block
+
+          &:last-child
+            display: inline-block
+            float: right
+
+@media screen and (max-width: 900px)
+  .layout_page
+    flex-direction: column
+
+  #recent-posts,
+  #aside_content
+    width: 100% !important
+
+@media screen and (min-width: 900px)
+  #aside_content
+    .card-widget
+      if hexo-config('aside.position') == 'right'
+        margin-left: 15px
+      else
+        margin-right: 15px
+
+if hexo-config('aside_mobile') == false
+  @media screen and (max-width: $sm)
+    #aside_content
+      display: none
+
+if hexo-config('darkmode.enable') || hexo-config('autoChangeMode') == '1' || hexo-config('autoChangeMode') == '2'
+[data-theme='dark']
+  body
+    background-color: darken(#121212, 2)
+    color: alpha(#FFFFFF, .6)
+
+  ::-webkit-scrollbar-thumb
+    background: lighten(#121212, 5)
+
+  // 網站背景，footer背景
+  #web_bg[data-type=color],
+  #footer[data-type=color]
+    background: darken(#121212, 2)
+
+  #web_bg[data-type=photo]:before,
+  #footer[data-type=photo]:before
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: alpha($dark-black, .7)
+    content: ''
+
+  #archive,
+  .tag-cloud,
+  #tag,
+  .category-content,
+  #category,
+  #page,
+  .flink,
+  .layout_post
+    background: #121212
+
+  #sidebar
+    background: #121212
+    box-shadow: -.25rem 0 .25rem #121212
+
+  .article-container code
+    background: #2c2c2c
+
+  .recent-posts
+    .recent-post-item
+      background: #121212 !important
+
+    .article-title
+      color: alpha(#FFFFFF, .8) !important
+
+  #page-header
+    &.fixed
+      background: #121212
+      box-shadow: 0 5px 6px -5px rgba(133, 133, 133, 0)
+
+      .toggle-menu,
+      #site-name,
+      a
+        color: alpha(#FFFFFF, .8)
+
+    .menus_item_child
+      background-color: lighten(#121212, 5) !important
+
+      li
+        &:hover
+          background: lighten(#121212, 20)
+
+        a
+          color: alpha(#FFFFFF, .6)
+
+  // 代碼框
+  .article-container pre,
+  .article-container pre code
+    background-color: lighten(#121212, 2)
+
+  .highlight-tools
+    background: lighten(#121212, 3)
+
+  .article-container .highlight:not(.js-file-line-container)
+    background-color: lighten(#121212, 2)
+
+    .code pre,
+    .gutter pre
+      background-color: lighten(#121212, 2)
+
+    table
+      .copy-notice
+        background: lighten(#121212, 3)
+
+  .copy-notice
+    background: lighten(#121212, 3)
+
+  blockquote
+    background-color: lighten(#121212, 10)
+    color: alpha(#FFFFFF, .6)
+
+  hr
+    border: 2px dashed alpha(#FFFFFF, .3)
+    background: 0
+
+    &:before
+      color: alpha(#FFFFFF, .6)
+
+  .layout_post >.tag_share .post-meta__tags
+    border: 1px solid alpha(#FFFFFF, .6)
+    background: 0
+    color: alpha(#FFFFFF, .6)
+
+    &:hover
+      background: darken(#FFFFFF, 60)
+
+  // 文章版權
+  .post-copyright
+    border: 1px solid alpha(#FFFFFF, .6)
+
+    .post-copyright-meta
+      color: alpha(#FFFFFF, .8)
+
+    .post-copyright-info
+      color: alpha(#FFFFFF, .6)
+
+  // 音樂播放器
+  .aplayer
+    filter: brightness(.7)
+    color: #000000
+
+  // 右下角按鈕
+  #rightside
+    & > div
+      & > i,
+      & > a,
+      & > div
+        background-color: lighten(#121212, 5) !important
+        color: alpha(#FFFFFF, .6) !important
+
+        &:hover
+          background: lighten(#121212, 20) !important
+
+  // 打賞按鈕
+  .post-reward
+    .reward-button
+      background-color: lighten(#121212, 10) !important
+
+    .reward-all
+      background-color: lighten(#121212, 10) !important
+
+      &:after
+        border-top: 13px solid lighten(#121212, 10) !important
+
+  .md-links-item:before,
+  .aside-category-list:hover,
+  .archive-list-item:hover,
+  #bookmark-it
+    background-color: lighten(#121212, 10) !important
+
+  img,
+  iframe,
+  .gist
+    filter: brightness(.7)
+
+  // 側邊欄
+  #aside_content
+    .card-widget
+      background: #121212 !important
+
+    .headline,
+    .length_num,
+    .aside-post_title,
+    .aside-category-list_link,
+    .archive-list-link,
+    .social-icon
+      color: alpha(#FFFFFF, .6) !important
+
+  .button--animated:before
+    background: lighten(#121212, 20) !important
+
+  // 頭部
+  #nav,
+  #top-container
+    &::before
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-color: alpha($dark-black, .7)
+      content: ''
+
+  #nav span,
+  #nav i,
+  #page-header a,
+  #page-header .toggle-menu,
+  #top-container #post-meta,
+  #top-container a,
+  #footer-wrap,
+  #footer-wrap a
+    color: alpha(#FFFFFF, .6)
+
+  .posttitle,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    color: alpha(#FFFFFF, .8)
+
+  .recent-posts .post-meta__date,
+  .recent-posts .article-meta,
+  .recent-posts .article-meta__categories,
+  .post-reward .reward-button,
+  .fa-clipboard,
+  .gutter pre,
+  #bookmark-it,
+  .copy-notice,
+  .md-links-item a,
+  .category-list-link,
+  .relatedPosts_date,
+  .prev-post .label,
+  .next-post .label
+    color: alpha(#FFFFFF, .6) !important
+
+  .prev_info,
+  .next_info,
+  .relatedPosts_title
+    color: alpha(#FFFFFF, .8) !important
+
+  // 時間軸界面
+  .article-sort-item__title
+    color: alpha(#FFFFFF, .6)
+
+    &:hover
+      color: #49b1f5
+
+  // 手機 MENU,TOC
+  #mobile-sidebar
+    #mobile-sidebar-menus
+      background: #121212
+
+      .headline
+        color: alpha(#FFFFFF, .6) !important
+
+      .length_num
+        color: alpha(#FFFFFF, .8) !important
+
+      a
+        color: alpha(#FFFFFF, .6) !important
+
+    #mobile-sidebar-toc
+      background: #121212
+
+      a
+        color: alpha(#FFFFFF, .6) !important
+
+  // note
+  if hexo-config('note.style') == 'modern'
+    .note
+      filter: brightness(.7)
+
+  if hexo-config('note.style') == 'flat'
+    .note
+      filter: brightness(.7)
+      color: #4c4948
+
+  // 第三方
+  // 插件 hexo-blog-encrypt
+  #hexo-blog-encrypt
+    label,
+    input
+      color: alpha(#FFFFFF, .6) !important
+
+    input
+      background-color: #121212
+
+  if hexo-config('gitalk') && hexo-config('gitalk.enable')
+    #gitalk-container
+      .gt-header-textarea,
+      .gt-header-preview,
+      .gt-comment-content,
+      button,
+      .gt-popup
+        filter: brightness(.7)
+
+      svg
+        fill: alpha(#FFFFFF, .6) !important
+
+  if hexo-config('valine') && hexo-config('valine.enable')
+    // 評論
+    #vcomment
+      p,
+      a,
+      textarea,
+      .vemoji-btn,
+      .vpreview-btn,
+      input,
+      path,
+      .vcount,
+      .vnum,
+      .vtime,
+      .vsys,
+      .vsys,
+      .vnick
+        color: alpha(#FFFFFF, .6) !important
+
+      .vsys
+        background: rgb(97, 106, 107) !important
+
+      .vbtn
+        border: 1px solid alpha(#FFFFFF, .6)
+        background: rgb(45, 48, 53) !important
+        color: alpha(#FFFFFF, .6) !important
+
+      .vwrap
+        border: 1px solid alpha(#FFFFFF, .6)
+
+      input
+        border-bottom: 1px dashed #616a6b
+
+      .vh
+        border-bottom: 1px dashed #616a6b
+
+      pre
+        border: 1px solid alpha(#FFFFFF, .6)
+        background-color: #121212
+
+        code
+          background: transparent
+
+      code
+        background-color: #2c2c2c
+        color: alpha(#FFFFFF, .6)
+
+      .vcontent.expand:before
+        background: linear-gradient(180deg, hsla(0, 0, 0, 0), hsl(218, 8%, 19%))
+
+      .vcontent.expand:after
+        background: hsla(204, 5%, 22%, 1)
+
+  if hexo-config('local_search') && hexo-config('local_search.enable')
+    #local-search
+      background: #121212
+
+      .local-search-box--input
+        background: #121212
+        color: alpha(#FFFFFF, .6)
+
+      .search-result-title
+        color: alpha(#FFFFFF, .6)
+
+  if hexo-config('algolia_search.enable')
+    #algolia-search
+      background: #121212
+
+      .ais-search-box--input
+        background: #121212
+        color: alpha(#FFFFFF, .6)
+
+      #algolia-search-results
+        .algolia-hit-item-link
+          color: alpha(#FFFFFF, .6)
+
+.flink
+  .post-cards
+    margin: -10px 10px 0
+
+    .md-links
+      overflow: auto
+      margin: 0 auto
+      padding: 0
+      text-align: center
+
+      & > .md-links-item
+        position: relative
+        float: left
+        overflow: hidden
+        margin: 20px 7px
+        padding: 0
+        width: calc(100% / 3 - 14px)
+        height: 90px
+        border-radius: 8px
+        list-style: none
+        line-height: 17px
+        transform: perspective(1px) translateZ(0)
+
+        &:hover
+          img
+            transform: rotate(540deg)
+
+        &:before
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+          z-index: -1
+          background: $light-blue
+          content: ''
+          transition-timing-function: ease-out
+          transition-duration: .3s
+          transition-property: transform
+          transform: scale(0)
+
+        &:hover:before,
+        &:focus:before,
+        &:active:before
+          transform: scale(1)
+
+        a
+          color: #333
+          text-decoration: none
+
+          img
+            float: left
+            margin: 11px 10px
+            padding: 4px
+            width: 70px
+            height: 70px
+            border-radius: 35px
+            transition: all .3s
+
+          .md-links-title
+            overflow: hidden
+            padding: 16px 10px 0 0
+            height: 40px
+            text-overflow: ellipsis
+            white-space: nowrap
+            font-weight: bold
+            font-size: 20px
+
+          .md-links-des
+            overflow: hidden
+            padding: 16px 10px
+            height: 50px
+            text-overflow: ellipsis
+            white-space: nowrap
+            font-size: 13px
+
+  .comment-word
+    font-weight: bold
+    font-size: 1.7em
+
+@media screen and (max-width: 1100px)
+  .flink
+    .md-links
+      .md-links-item
+        width: calc(50% - 14px) !important
+
+@media screen and (max-width: 600px)
+  .flink
+    .md-links
+      .md-links-item
+        width: calc(100% - 14px) !important
+
+.scroll-down
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: 42px
+  text-align: center
+  font-size: 30px
+  cursor: pointer
+
+  .scroll-down-effects
+    position: absolute
+    color: $white
+
+header
+  position: relative
+
+@media screen and (min-width: $sm)
+  #site-title
+    font-size: 2rem
+
+  #site-sub-title
+    font-size: 1.2rem
+
+@media screen and (max-width: $sm)
+  #page-header
+    padding: 10px .8rem
+
+  #nav
+    #site-social-icons
+      display: block
+
+    &.not_index_bg
+      height: 14rem
+
+    #page_site-info
+      top: 7rem
+
+@media screen and (max-width: $bg)
+  #page-header
+    &.fixed
+      &.open-sidebar
+        .site-page
+          visibility: visible
+
