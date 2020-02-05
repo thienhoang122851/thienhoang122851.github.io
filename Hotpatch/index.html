@@ -1,46 +1,81 @@
-
 <!DOCTYPE html>
-<html lang="en" class="loading">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hotpatch - LiZ Hoang</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="LiZ Hoang,">
-    <meta name="description" content="Các patch cần thiết giúp hoàn thiện PC/Laptop chạy Hackintosh của bạn...">
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+    <title>CreateUSBmacOSInstall | LiZ Hoang</title>
+    <meta name="description" content="CreateUSBmacOSInstall">
     <meta name="author" content="LiZ Hoang">
-    <link rel="alternative" href="atom.xml" title="Hotpatch" type="application/atom+xml">
-    <link rel="icon" href="/img/favicon.png"> 
-    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
-    
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    <meta name="copyright" content="LiZ Hoang">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link rel="preconnect" href="//cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin">
+    <link rel="preconnect" href="//busuanzi.ibruce.info">
+<script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
+<script>const autoChangeMode = '2'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-    
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
 
-    
-    
-<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
 
-    
-<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
 
-    
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
-
-    
-<link rel="stylesheet" href="/css/obsidian.css">
-
-    
-<link rel="stylesheet" href="/css/ball-atom.min.css">
-
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
-    
-   
-<meta name="generator" content="Hexo 4.2.0"></head>
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script>
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css">
+<link rel="next" title="Hotpatch" href="https://lzhoang2601.github.io/Hotpatch/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+<script>var GLOBAL_CONFIG={root:"/",algolia:void 0,,languages:{hits_empty:"Not found:${query}"}},copy:{success:"Đã sao chép",error:"Sao chéo lỗi",noSupport:"Trình duyệt không hỗ trợ"},runtime_unit:"Ngày",runtime:!0,copyright:{languages:{author:"Tác giả: Hoàng Hồng Quân",link:"Liên kết: https://lzhoang2601.github.io/CreateUSBmacOSInstall/",source:"Theme: Butterfly",info:"Bản quyền thuộc về LiZ Hoang. Vui lòng giữ tên tác giả nếu Fork"}},ClickShowText:void 0,medium_zoom:!1,fancybox:!0,day_to_night:"On Dark Mode",night_to_day:"Off Dark Mode",bgLight:"#49b1f5",bgDark:"#121212",position:"bottom-left"},baiduPush:!0,highlightCopy:!0,highlightLang:!0,highlightShrink:!1,isHome:!1,isPost:!0,isFontAwesomeV5:!1}
+</script></head>
+<body>
+<header>
+    <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LiZ Hoang</a></span>
+    <span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span>
+    <span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i> <span>Home</span></a></div>
+    <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i> <span>Archive</span></a></div>
+    <div class="menus_item"><a class="site-page" href="https://youtube.com/c/LiZHoang"><i class="fa-fw fa fa-folder-open"></i> <span>My Channel Youtube</span></a></div>
+    <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i> <span>About Me</span></a></div></div></span></div></header>
 
 
 <body class="loading">
