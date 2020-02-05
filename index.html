@@ -68,7 +68,7 @@ function activateLightMode(){
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css">
 <link rel="canonical" href="https://demo.jerryc.me/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
-    <script>var GLOBAL_CONFIG={root:"/",algolia:void 0s,languages:{hits_empty:"Not found:${query}"}},copy:{success:"Đã sao chép",error:"Sao chéo lỗi",noSupport:"Trình duyệt không hỗ trợ"},runtime_unit:"Ngày",runtime:!0,copyright:{languages:{author:"Tác giả: Hoàng Hồng Quân",link:"Liên kết: https://lzhoang2601.github.io/CreateUSBmacOSInstall/",source:"Theme: Butterfly",info:"Bản quyền thuộc về LiZ Hoang. Vui lòng giữ tên tác giả nếu Fork"}},ClickShowText:void 0,medium_zoom:!1,fancybox:!0,day_to_night:"On Dark Mode",night_to_day:"Off Dark Mode",bgLight:"#49b1f5",bgDark:"#121212",position:"bottom-left"},baiduPush:!0,highlightCopy:!0,highlightLang:!0,highlightShrink:!1,isHome:!1,isPost:!0,isFontAwesomeV5:!1}
+    <script>var GLOBAL_CONFIG={root:"/",algolia:void 0,localSearch:{path:"search.xml",languages:{hits_empty:"找不到您查詢的內容:${query}"}},translate:{defaultEncoding:1,translateDelay:0,cookieDomain:"https://lzhoang2601.github.io/"},copy:{success:"Đã sao chép",error:"Sao chép lỗi",noSupport:"Vui lòng thử với trình duyệt khác"},bookmark:{title:"Snackbar.bookmark.title"},runtime_unit:"天",runtime:!0,copyright:{languages:{author:"Author: LiZ Hoang",link:"https://lzhoang2601.github.io/",info:"Hoàng Hồng Quân 2k5"}},ClickShowText:void 0,medium_zoom:!1,fancybox:!0,Snackbar:{bookmark:{title:"Snackbar.bookmark.title"},day_to_night:"Dark Mode: ON",night_to_day:"Dark Mode: OFF",bgLight:"#49b1f5",bgDark:"#121212",position:"bottom-left"},baiduPush:!0,highlightCopy:!0,highlightLang:!0,highlightShrink:!1,isHome:!0,isPost:!1,isFontAwesomeV5:!1}
 </script>
 </head>
     <body>
@@ -118,8 +118,8 @@ function activateLightMode(){
                         <a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="https://facebook.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a><a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div></div>
             <footer id="footer" style="background-image:url(https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/about.jpg)" data-type="photo"><div id="footer-wrap">
                 <div class="copyright">&copy;2020 by LiZ Hoang</div>
-                <div class="framework-info">Power by <a href="http://hexo.io">Hexo</a></div>
-            </footer></div>
+                <div class="framework-info">Power by <a href="http://hexo.io">Hexo</a></div></div>
+            </footer>
             <section class="rightside" id="rightside">
                 <div id="rightside-config-hide"><i class="darkmode fa fa-sun-o" id="darkmode" title="Ban ngày/Ban đêm"></i>
                 <div id="rightside-config-show"><div id="rightside_config" title="Nâng cao"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="Top" aria-hidden="true"></i>
@@ -135,29 +135,26 @@ function activateLightMode(){
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async></script>
 <script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
-<script>let subtitleEffect = true
-fetch('https://v1.hitokoto.cn')
-.then(function (res){
-  return res.json();
-})
-.then(function (data) {
-  if (subtitleEffect){
-    let sub = 'Hoàng Hồng Quân 2k5, Ăn hải sản thì phải ăn ghẹ, Muốn làm mẹ thì phải ăn anh'.length == 0  ? new Array() : 'Hoàng Hồng Quân 2k5, Ăn hải sản thì phải ăn ghẹ, Muốn làm mẹ thì phải ăn anh'.split(",");
-    let both = sub.unshift(data.hitokoto)
-    let typed = new Typed("#subtitle", {
-      strings: sub,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50
-    });
-  }else{
-    $("#subtitle").text(data.hitokoto);
-  }
-})
-.catch(function (err) {
-  console.error(err);
-})</script>
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["Ăn hải sản thì phải ăn GHẸ", "muốn làm mẹ thì phải ăn ANH"],
+                typeSpeed: 150,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 50,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script>
 <script>pangu.spacingElementByClassName("article-container")</script>
     </body>
