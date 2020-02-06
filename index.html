@@ -107,7 +107,7 @@ function activateLightMode(){
 </a>
                     <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 12-01-2020</time></div>
                     <div class="content">Chỉnh độ sáng màn hình laptop</div></div></div>
-                <div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/8b9bc872/" title="no-title"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/material-7.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="no-title"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8b9bc872/" title="no-title">no-title</a><div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2013-12-25</time></div><div class="content">This post doesn’t have a title. Make sure it’s accessible.</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/2e066104/" title="Videos"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/material-8.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Videos"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/2e066104/" title="Videos">Videos</a><div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2013-12-25</time></div><div class="content">This is a video test post. Youtube Vimeo</div></div></div></div></div>
+                <div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/8b9bc872/" title="no-title"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/material-7.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="no-title"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8b9bc872/" title="no-title">no-title</a><div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2013-12-25</time></div><div class="content">This post doesn’t have a title. Make sure it’s accessible.</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/2e066104/" title="Videos"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/material-8.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Videos"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/2e066104/" title="Videos">Videos</a><div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2013-12-25</time></div><div class="content">This is a video test post. Youtube Vimeo</div></div></div></div></div></main>
                 <div class="aside_content" id="aside_content">
                     <div class="card-widget card-info"><div class="card-content">
                         <div class="card-info-avatar is-center"><img src="/img/about.jpg" onerror='this.onerror=null,this.src="/img/about.jpg"' alt="avatar">
@@ -117,7 +117,7 @@ function activateLightMode(){
                         <div class="headline">Bài viết</div>
                         <div class="length_num">2</div></a></div></div>
                     <div class="card-info-social-icons is-center">
-                        <a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="https://facebook.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a><a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div></div></main>
+                        <a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="https://facebook.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a><a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div></div>
             <footer id="footer" style="background-image:url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/index.jpg)" data-type="photo"><div id="footer-wrap">&copy;2020 by <a href="https://facebook.com/lzhoang2601">LiZ Hoang.</a> Power by<a href="http://hexo.io"> Hexo</a></div></div></footer></div>
 <section class="rightside" id="rightside"><div id="rightside-config-hide">
     <i class="fa fa-book" id="readmode" title="Night Light"></i>
@@ -143,7 +143,7 @@ fetch('https://v1.hitokoto.cn')
 .then(function (data) {
   if (subtitleEffect){
     let sub = 'Hoàng Hồng Quân 2k5,Never Give Up'.length == 0  ? new Array() : 'Hoàng Hồng Quân 2k5,Never Give Up'.split(",");
-    let both = sub.unshift(data.hitokoto)
+    let both = sub.unshift(lz)
     let typed = new Typed("#subtitle", {
       strings: sub,
       startDelay: 300,
