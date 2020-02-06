@@ -79,18 +79,7 @@ function activateLightMode(){
                 <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i> <span>About Me</span></a></div></div></div></div>
         <div id="body-wrap"><nav class="full_page" id="nav" style="background-image:url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/index.jpg)"><div id="site-info">
             <div id="site-title"><span class="blogtitle">LiZ Hoang</span></div>
-            <!--<div id="site-sub-title"><span id="subtitle"></span></div>-->
-            <div class="screen-gradient-after">
-                <div class="screen-gradient-content">
-                    <div class="screen-gradient-content-inside">
-                        <div class="bold-underline-links screen-gradient-sponsor">
-                            <p>
-                                <span class="typed-text"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="site-sub-title"><span id="subtitle"></span></div>
             <div id="site-social-icons"><a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
                 <a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                 <a class="social-icon" href="https://fb.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -141,26 +130,29 @@ function activateLightMode(){
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async></script>
 <script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
-<script>
-    function initialTyped () {
-        var typedTextEl = $('.typed-text');
-        if (typedTextEl && typedTextEl.length > 0) {
-            var typed = new Typed('.typed-text', {
-                strings: ["Hoàng Hồng Quân 2k5", "Ăn hải sản thì phải ăn GHẸ, muốn làm mẹ thì phải ăn ANH"],
-                typeSpeed: 350,
-                loop: true,
-                loopCount: Infinity,
-                backSpeed: 50,
-            });
-        }
-    }
-
-    if ($('.article-header') && $('.article-header').length) {
-        $(document).ready(function () {
-            initialTyped();
-        });
-    }
-</script>
+<script>let subtitleEffect = true
+fetch('https://v1.hitokoto.cn')
+.then(function (res){
+  return res.json();
+})
+.then(function (data) {
+  if (subtitleEffect){
+    let sub = 'Hoàng Hồng Quân 2k5,Never Give Up'.length == 0  ? new Array() : 'Hoàng Hồng Quân 2k5,Never Give Up'.split(",");
+    let both = sub.unshift(data.hitokoto)
+    let typed = new Typed("#subtitle", {
+      strings: sub,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    });
+  }else{
+    $("#subtitle").text(data.hitokoto);
+  }
+})
+.catch(function (err) {
+  console.error(err);
+})</script>
 <script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script>
 <script>pangu.spacingElementByClassName("article-container")</script>
     </body>
