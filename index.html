@@ -1,137 +1,308 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-        <title>LiZ Hoang</title>
-        <meta name="description" content="LiZ Hoang">
-        <meta name="author" content="LiZ Hoang">
-        <meta name="copyright" content="LiZ Hoang">
-        <meta name="format-detection" content="telephone=no">
-        <link rel="shortcut icon" href="/img/favicon.png">
-        <meta http-equiv="Cache-Control" content="no-transform">
-        <meta http-equiv="Cache-Control" content="no-siteapp">
-        <link rel="preconnect" href="//cdn.jsdelivr.net">
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin">
-        <link rel="preconnect" href="//busuanzi.ibruce.info">
-<script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
-<script>const autoChangeMode = '2'
-var t = Cookies.get("theme");
-if (autoChangeMode == '1'){
-const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+<html>
+s  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LiZ Hoang</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    <link rel="canonical" href="https://y7kim.github.io/agency-jekyll-theme//">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-if (t === undefined){
-  if (isLightMode) activateLightMode()
-  else if (isDarkMode) activateDarkMode()
-  else if (isNotSpecified || hasNoSupport){
-    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-    now = new Date();
-    hour = now.getHours();
-    isNight = hour < 6 || hour >= 18
-    isNight ? activateDarkMode() : activateLightMode()
-}
-} else if (t == 'light') activateLightMode()
-else activateDarkMode()
+</head>
+
+    <body id="page-top" class="index">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">LiZ Hoang</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#posts">Posts</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#aboutme">About Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To LiZ Hoang Website!</div>
+                <div class="intro-heading">0803💕1606</div>
+                <a href="#aboutme" class="page-scroll btn btn-xl">Tìm hiểu thêm</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="posts" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Posts</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+            </div>
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#postsone" class="posts-link" data-toggle="modal">
+                        <div class="posts-hover">
+                            <div class="posts-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/hackintosh.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                    <div class="posts-caption">
+                        <h4>CreateUSBmacOSInstall</h4>
+                        <p class="text-muted">Cài đặt macOS/Hackintosh</p>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="" class="posts-link" data-toggle="modal">
+                        <div class="posts-hover">
+                            <div class="posts-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/hackintosh_2.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                    <div class="posts-caption">
+                        <h4>Hackintosh for Dell Inspiron 5459</h4>
+                        <p class="text-muted">Cập nhật: 19/08/2020</p>
+                    </div>
+                </div>
+            
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="" class="posts-link" data-toggle="modal">
+                        <div class="posts-hover">
+                            <div class="posts-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/hackintosh_3s.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                    <div class="posts-caption">
+                        <h4>Hackintosh Bootloader EFI</h4>
+                        <p class="text-muted">Cập nhật: 06/08/2020</p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <section id="aboutme">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Họ và tên</h4>
+                                    <h4 class="subheading">Hoàng Hồng Quân</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Ngày sinh</h4>
+                                    <h4 class="subheading">08/03/2005</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted"></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Sở thích</h4>
+                                    <h4 class="subheading"></h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Đam mê vọc vạch phần mềm</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Thiết bị</h4>
+                                    <h4 class="subheading"></h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Dell Inspiron 5459 (macOS) + Redmi AirDots S</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Một góc
+                                    <br>cuộc sống
+                                    <br>của tôi</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode()
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
+      <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; LiZ Hoang 2020</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        
+                        <li><a href="https://www.facebook.com/lzhoang2601/"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        
+                        <li><a href="mailto:lzhoang2601@gmail.com"><i class="fa fa-gmail"></i></a>
+                        </li>
+                        
+                        <li><a href="http://github.com/lzhoang2601"><i class="fa fa-github"></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+    <div class="portfolio-modal modal fade" id="postsone" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>CreateUSBmacOSInstall</h2>
+                            <hr class="star-primary">
+                            <img src="img/hackintosh.jpg" class="img-responsive img-centered" alt="image-alt">
+                            <h3 id="macOS">macOS</h3>
+                            <ul>
+                                <li><a href="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/CreateUSBmacOSInstall/HackintoshFileS.zip">HackintoshFileS</a></li>
+                                <li><a href="https://apps.apple.com/us/app/macos-catalina/id1466841314?l=en-us&mt=12">macOS Catalina</a>, <a href="https://itunes.apple.com/us/app/macos-mojave/id1398502828?ls=1&amp;mt=12">macOS Mojave</a>, <a href="https://itunes.apple.com/us/app/macos-high-sierra/id1246284741?ls=1&amp;mt=12">macOS High Sierra</a></li>
+                            </ul>
 
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG={root:"/",algolia:void 0,localSearch:{path:"search.xml",languages:{hits_empty:"找不到您查詢的內容:${query}"}},bookmark:{title:"Snackbar.bookmark.title"},runtime_unit:"天",runtime:!0,copyright:{languages:{author:"LiZ Hoang",link:"https://lzhoang2601.github.io"}},ClickShowText:void 0,medium_zoom:!1,fancybox:!0,Snackbar:{bookmark:{title:"Snackbar.bookmark.title"},day_to_night:"Dark Mode: ON",night_to_day:"Dark Mode: OFF",bgLight:"#49b1f5",bgDark:"#121212",position:"bottom-left"},baiduPush:!0,highlightCopy:!0,highlightLang:!0,highlightShrink:!1,isHome:!0,isPost:!1,isFontAwesomeV5:!1}
-</script></head><body>
-        <header>
-            <div id="page-header">
-                <span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">LiZ Hoang</a></span>
-                <span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span>
-                <span class="pull_right menus">
-                    <div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i> <span>Home</span></a></div>
-                    <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i> <span>Archives</span></a></div>
-                    <div class="menus_item"><a class="site-page" href="https://youtube.com/c/LiZHoang"><i class="fa-fw fa fa-youtube"></i> <span>My Channel Youtube</span></a></div>
-                    <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i> <span>About Me</span></a></div></div></span></div></header>
-        <div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/about.jpg" onerror='onerror=null,src="/img/about.jpg"' alt="avatar"></div>
-            <div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Bài viết</div><div class="length_num">2</div></a></div></div></div><hr>
-            <div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i> <span>Home</span></a></div>
-                <div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i> <span>Archives</span></a></div>
-                <div class="menus_item"><a class="site-page" href="https://youtube.com/c/LiZHoang"><i class="fa-fw fa fa-youtube"></i> <span>My Channel Youtube</span></a></div>
-                <div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i> <span>About Me</span></a></div></div></div></div>
-        <div id="body-wrap"><nav class="full_page" id="nav" style="background-image:url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/index.jpg)"><div id="site-info">
-            <div id="site-title"><span class="blogtitle">LiZ Hoang</span></div>
-            <div id="site-sub-title"><span id="subtitle"></span></div>
-            <div id="site-social-icons">
-                <a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-                <a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-                <a class="social-icon" href="https://fb.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div>
-        <div id="scroll-down"><i class="fa fa-angle-down scroll-down-effects"></i></div></nav>
-        <main id="content-outer"><div class="layout_page" id="content-inner">
-            <div class="recent-posts" id="recent-posts"><div class="recent-post-item">
-                <div class="post_cover left_radius"><a href="/CreateUSBmacOSInstall/" title="CreateUSBmacOSInstall"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/material-10.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="CreateUSBmacOSInstall"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="/CreateUSBmacOSInstall/" title="CreateUSBmacOSInstall">CreateUSBmacOSInstall</a>
-                <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 24-01-2020</time></div>
-                <div class="content">Các công cụ cần thiết trong quá trình tạo USB cài Hackintosh và cài Hackintosh macOS HackintoshFileS macOS Catalina, macOS Mojave, macOS High Sierra, macOS Sierra Windows...</div></div></div>
-            <div class="recent-post-item"><div class="post_cover right_radius"><a href="/Hotpatch/" title="Hotpatch"><img class="post_bg lazyload" data-src="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/img/cover.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Hotpatch"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="/Hotpatch/" title="Hotpatch">Hotpatch</a>
-                <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 24-01-2020</time></div>
-                <div class="content">Các patch cần thiết giúp hoàn thiện PC/Laptop chạy Hackintosh của bạn Tải xuống Hotpatch Nếu có yêu cầu thêm patch vào Clover/ACPI/patched thì bắt buộc save với định dạng .aml...</div></div></div>
-            <div class="recent-posts" id="recent-posts"><div class="recent-post-item">
-                <div class="post_cover left_radius"><a href="https://youtu.be/tNhxjhcbmFo" title="[Serial Hackintosh] P.VIII Sửa lỗi màn hình ám tím | Force RGB"><img class="post_bg lazyload" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/material-10.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="VIII"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="https://youtu.be/tNhxjhcbmFo" title="">[Serial Hackintosh] P.VIII Sửa lỗi màn hình ám tím | Force RGB</a>
-                <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 12-01-2020</time></div>
-                <div class="content">Sửa lỗi màn hình ám tím | Force RGB khi cài Hackintosh</div></div></div>
-            <div class="recent-post-item"><div class="post_cover right_radius"><a href="https://youtu.be/pYjL9qlR83k" title="[Serial Hackintosh] P.VII Chỉnh độ sáng màn hình laptop
-"><img class="post_bg lazyload" data-src="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/img/cover.png" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Hotpatch"></a></div>
-                <div class="recent-post-info"><a class="article-title" href="https://youtu.be/pYjL9qlR83k" title="">[Serial Hackintosh] P.VII Chỉnh độ sáng màn hình laptop
-</a>
-                <div class="article-meta-wrap"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 12-01-2020</time></div>
-                <div class="content">Chỉnh độ sáng màn hình laptop</div></div></div></div></div>
-            <div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar" src="/img/about.jpg" onerror='this.onerror=null,this.src="/img/about.jpg"' alt="avatar"><div class="author-info__name">Hoàng Hồng Quân</div><div class="author-info__description">Vọc vạch là đam mê</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Bài viết</div><div class="length_num">2</div></a></div><div class="card-info-data-item is-center"><a href="https://youtube.com/c/LiZHoang"><div class="headline">Video</div><div class="length_num">10</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lzhoang2601" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:lzhoang2601@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="https://facebook.com/lzhoang2601" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a><a class="social-icon" href="https://youtube.com/c/LiZHoang" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></div></div></div></main><footer id="footer" style="background-image:url(https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/index.jpg)" data-type="photo"><div id="footer-wrap">&copy;2020 by <a href="https://facebook.com/lzhoang2601">LiZ Hoang.</a> Power by<a href="http://hexo.io"> Hexo</a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="Night Light"></i><i class="fa fa-plus" id="font_plus" title="Tăng kích thước chữ"></i><i class="fa fa-minus" id="font_minus" title="Giảm kích thước chữ"></i><i class="darkmode fa fa-sun-o" id="darkmode" title="Light/Dark Mode"></i></div><div id="rightside-config-show"><div id="rightside_config" title="Nâng cao"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="Top" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/main.js"></script><script src="/js/utils.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zindex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async></script><script src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>pangu.spacingElementByClassName("article-container")</script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
-<script>let subtitleEffect = true
-fetch('https://v1.hitokoto.cn')
-.then(function (res){
-  return res.json();
-})
-.then(function (data) {
-  if (subtitleEffect){
-    let sub = 'Hoàng Hồng Quân 2k5,Never Give Up'.length == 0  ? new Array() : 'Hoàng Hồng Quân 2k5,Never Give Up'.split(",");
-    let both = sub.unshift(data.hitokoto)
-    let typed = new Typed("#subtitle", {
-      strings: sub,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: true,
-      backSpeed: 50
-    });
-  }else{
-    $("#subtitle").text(data.hitokoto);
-  }
-})
-.catch(function (err) {
-  console.error(err);
-})</script>
+                            <h3 id="Windows">Windows</h3>
+                            <ul>
+                                <li>Script chứa các công cụ giúp cài Hackintosh: <a href="https://github.com/lzhoang2601/lzhoang2601.github.io/raw/master/CreateUSBmacOSInstall/CreateUSBmacOSInstall.exe">CreateUSBmacOSInstall</a></li>
+                                <li>Bộ cài macOS dùng cho USB</li>
+                                <ul>
+                                    <li><a href="https://drive.google.com/open?id=1cC1f8bWFBblmvjvJHn4nFgThMOU2MCgy">macOS Catalina</a> (MD5: 418d1fa30fd6fd2171aafb1c06320c2e)</li>
+                                    <li><a href="https://drive.google.com/open?id=1e8guik_XVjgBPd2ZEdN-Ik2MeMpa36Oc">macOS Mojave</a> (MD5: 2adb6ff63db2c40f12fca599b50f376d)</li>
+                                    <li><a href="https://drive.google.com/open?id=1-KaeAkCSvzjxmguFzScM2nRqGcKVeVC8">macOS High Sierra</a> (MD5: 4dfc77461884dd24cce39e1aa2397c31)</li>
+                                </ul>
+                                <li>Bộ restore macOS dùng cho việc cài trực tiếp macOS trong Windows</li>
+                                <p><a href="https://drive.google.com/file/d/1nljz17u_2ahL_nlR8honyuNMzion-ZVv/view?usp=sharing">macOS Big Sur</a>, <a href="https://drive.google.com/open?id=1wNCn2Op_c9B4XERc_Xtccp0fuzOIKdqW&amp;fbclid=IwAR2A8D2MgB8ydAWFyrdxT_xqnxEtB5URtTVko93b1VUuw5zKYVtNMc1_DEI">macOS Catalina</a>, <a href="">macOS Mojave</a>, <a href="https://drive.google.com/file/d/1ZM944MW5ovDquLHpSOuZ9cHd4MLH9e63/view?usp=sharing">macOS High Sierra</a></p>
+                            </ul>
+
+                            <h3 id="InstallBootloader">Cài đặt Bootloader</h3>
+                            <ul>
+                                <p><a href="https://github.com/lzhoang2601/OpenCore-Bootloader-EFI">OpenCore Bootloader EFI</a> for all Intel CPU generation and AMD CPU with UEFI/Legacy boot mode on Desktop or Laptop</p>
+                                <li>Để cài OpenCore Bootloder lên USB hoặc ổ cứng, bạn chỉ việc giải nén EFI mình đã làm sẳn ở trên vào EFI của USB hoặc ổ cứng là xong</li>
+                                <li>Nếu bạn cài OpenCore lên ổ cứng, bạn hãy reset BIOS để thêm OpenCore vào menu khởi động tránh những vấn đề sau này</li>
+                            </ul>
+
+                            <h3 id="CustomConfig">Tinh chỉnh Config</h3>
+                            <ul> 
+                                <li>Nếu Desktop dùng Intel CPU thì bạn hãy tạm thời bỏ qua bước này (trừ CPU Pentium và Celeron thì bạn cần làm thêm bước cuối mình đã hướng dẫn trong video ở dưới), còn AMD CPU thì bạn hãy xoá config.plist gốc ở /EFI/OC/ rồi rename config2.plist thành config.plist</li>
+                                <li>Với Laptop thì bạn hãy vào /EFI/OC/config_laptop/, tìm đến config chứa tên iGPU của máy bạn, rename nó thành config.plist sau đó thay thế config gốc ở /EFI/OC/</lis>
+                            </ul> 
+
+                            <h3 id="InstallonWindows">Cài Hackintosh trực tiếp trên Windows (Coming soon)</h3><!--<div class="video-container"><iframe width="640" height="320" src="https://www.youtube.com/embed/RNJf6HPvJB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>-->
+
+                            <h3 id="CreateonWindows">Cách tạo USB cài Hackintosh trên Windows</h3><div class="video-container"><iframe width="640" height="320" src="https://www.youtube.com/embed/RNJf6HPvJB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+
+                            <h3 id="CreateonmacOS">Cách tạo USB cài Hackintosh trên macOS</h3><div class="video-container"><iframe width="640" height="320" src="https://www.youtube.com/embed/zQyLFOOmxOU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+                                
+                            <h3>Hoàn thiện Hackintosh</h3>
+                            <ul>
+                                <li><a href="https://github.com/acidanthera/AppleALC/releases/download/1.4.9/AppleALC-1.4.9-RELEASE.zip">AppleALC.kext</a>  Giúp Kích Hoạt Âm Thanh</li>
+                                <li><a href="https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/RehabMan-CodecCommander-2018-1003.zip">CodecCommander.kext</a>  Giúp Fix Lỗi Mất Âm Thanh Sau Khi Sleep Và Tai Nghe Bị Rè Trên Laptop</li>
+                            </ul>
+
+                            <ul class="list-inline item-details">
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">27/07/2020</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/agency-jekyll-theme//js/jquery-1.11.0.js"></script>
+    <script src="/agency-jekyll-theme//js/bootstrap.min.js"></script>
+    <script src="/agency-jekyll-theme//js/jquery.easing.min.js"></script>
+    <script src="/agency-jekyll-theme//js/classie.js"></script>
+    <script src="/agency-jekyll-theme//js/cbpAnimatedHeader.js"></script>
+    <script src="/agency-jekyll-theme//js/jqBootstrapValidation.js"></script>
+    <script src="/agency-jekyll-theme//js/contact_me.js"></script>
+    <script src="/agency-jekyll-theme//js/agency.js"></script>
+
 
     </body>
 </html>
