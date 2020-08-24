@@ -644,6 +644,10 @@ footer {
     text-align: center;
 }
 
+footer .fa {
+    line-height: 40px;
+}
+
 footer span.copyright {
     text-transform: uppercase;
     text-transform: none;
