@@ -17,7 +17,7 @@
 
     <body id="page-top" class="index">
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <a class="navbar-brand page-scroll" href="#page-top">LiZ Hoang</a>
@@ -25,9 +25,9 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden active">
+                    <li class="hidden">
                         <a href="#page-top"></a>
-                    </li>                    
+                    </li>
                 </ul>
             </div>
         </div>
@@ -64,12 +64,14 @@
                                     <li><a href="https://drive.google.com/open?id=1-KaeAkCSvzjxmguFzScM2nRqGcKVeVC8">macOS High Sierra</a> (MD5: 4dfc77461884dd24cce39e1aa2397c31)</li>
                                 </ul>
                                 <li>Bộ restore macOS dùng cho việc cài trực tiếp macOS trong Windows</li>
-                                <p><a href="https://drive.google.com/file/d/1nljz17u_2ahL_nlR8honyuNMzion-ZVv/view?usp=sharing">macOS Big Sur</a>, <a href="https://drive.google.com/open?id=1wNCn2Op_c9B4XERc_Xtccp0fuzOIKdqW&amp;fbclid=IwAR2A8D2MgB8ydAWFyrdxT_xqnxEtB5URtTVko93b1VUuw5zKYVtNMc1_DEI">macOS Catalina</a>, <a href="">macOS Mojave</a>, <a href="https://drive.google.com/file/d/1ZM944MW5ovDquLHpSOuZ9cHd4MLH9e63/view?usp=sharing">macOS High Sierra</a></p>
+                                <ul>
+                                    <p><a href="https://drive.google.com/file/d/1nljz17u_2ahL_nlR8honyuNMzion-ZVv/view?usp=sharing">macOS Big Sur</a>, <a href="https://drive.google.com/open?id=1wNCn2Op_c9B4XERc_Xtccp0fuzOIKdqW&amp;fbclid=IwAR2A8D2MgB8ydAWFyrdxT_xqnxEtB5URtTVko93b1VUuw5zKYVtNMc1_DEI">macOS Catalina</a>, <a href="">macOS Mojave</a>, <a href="https://drive.google.com/file/d/1ZM944MW5ovDquLHpSOuZ9cHd4MLH9e63/view?usp=sharing">macOS High Sierra</a></p>
+                                </ul>
                             </ul>
 
                             <h3 id="InstallBootloader">Cài đặt Bootloader</h3>
                             <ul>
-                                <p><a href="https://github.com/lzhoang2601/OpenCore-Bootloader-EFI">OpenCore Bootloader EFI</a> for all Intel CPU generation and AMD CPU with UEFI/Legacy boot mode on Desktop or Laptop</p>
+                                <h5><a href="https://github.com/lzhoang2601/OpenCore-Bootloader-EFI">OpenCore Bootloader EFI</a> support CPUs Intel and CPUs AMD for Desktop or Laptop</h5>
                                 <li>Để cài OpenCore Bootloder lên USB hoặc ổ cứng, bạn chỉ việc giải nén EFI mình đã làm sẳn ở trên vào EFI của USB hoặc ổ cứng là xong</li>
                                 <li>Nếu bạn cài OpenCore lên ổ cứng, bạn hãy reset BIOS để thêm OpenCore vào menu khởi động tránh những vấn đề sau này</li>
                             </ul>
@@ -80,7 +82,7 @@
                                 <li>Với Laptop thì bạn hãy vào /EFI/OC/config_laptop/, tìm đến config chứa tên iGPU của máy bạn, rename nó thành config.plist sau đó thay thế config gốc ở /EFI/OC/
                             </li></ul> 
 
-                            <!--<h3 id="InstallonWindows">Cài Hackintosh trực tiếp trên Windows (Coming soon)</h3>--><!--<div class="video-container"><iframe width="708" height="354" src="https://www.youtube.com/embed/RNJf6HPvJB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>-->
+                            <!--<h3 id="InstallonWindows">Cài Hackintosh trực tiếp trên Windows (Coming soon)</h3><div class="video-container"><iframe width="708" height="354" src="https://www.youtube.com/embed/RNJf6HPvJB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>-->
 
                             <h3 id="CreateonWindows">Cách tạo USB cài Hackintosh trên Windows</h3><div class="video-container"><iframe width="708" height="354" src="https://www.youtube.com/embed/RNJf6HPvJB4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
@@ -97,12 +99,11 @@
             </div>
     </section>
 
-
       <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright © LiZ Hoang 2020</span>
+                    <span class="copyright">Copyright &copy; LiZ Hoang 2020</span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
@@ -133,5 +134,5 @@
     <script src="/js/cbpAnimatedHeader.js"></script>
     <script src="/js/jqBootstrapValidation.js"></script>
 
-    
-</body></html>
+    </body>
+</html>
